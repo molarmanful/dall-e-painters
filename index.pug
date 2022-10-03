@@ -46,6 +46,7 @@ html
               for i in imgs
                 .column
                   figure.image.is-square
-                    img(src=`pics/${painter}-${field}-${i}.png`)
+                    - let src = `pics/${painter}-${field}-${i}.png`
+                    a(href=src target='_blank'): img(src=src)
 
     script(src='main.js')
