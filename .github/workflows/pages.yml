@@ -33,7 +33,7 @@ jobs:
       - name: Node
         uses: actions/setup-node@v3
         with:
-          node-version: *
+          node-version: '*'
       - run: npm ci
       - run: node index.js
       - name: Setup Pages
