@@ -3,22 +3,22 @@
     dali: {
       quote: '"Have no fear of perfection - you\'ll never reach it." salvador dali painting',
       keywords: 'religious works desires imaginary female figure giant rocky cliff many odd objects freudian painting',
-      title: 'the persistence of memory salvador dali painting',
+      work: 'the persistence of memory salvador dali painting',
     },
     picasso: {
       quote: '"If I paint a wild horse, you might not see the horse... but surely you will see the wildness!" Pablo Picasso paint',
       keywords: 'cubism surrealism expressionism post-impressionism open figuration abstraction texture collage',
-      title: 'the weeping woman pablo picasso painting',
+      work: 'the weeping woman pablo picasso painting',
     },
     davinci: {
       quote: '"Art is never finished, only abandoned." leonardo da vinci painting',
       keywords: 'transparent earthy colors narrow tonal range Renaissance realistic chiaroscuro oil painting',
-      title: 'mona lisa leonardo da vinci painting',
+      work: 'mona lisa leonardo da vinci painting',
     },
     warhol: {
       quote: '"I like money on the wall." andy warhol photographic screen painting',
       keywords: 'pop art colorful bold garnish color high contrast high saturation consumerism repetitive photographic screen painting',
-      title: 'campbell\'s soup cans andy warhol photographic screen painting',
+      work: 'campbell\'s soup cans andy warhol photographic screen painting',
     },
   }
   let imgs = [0, 1, 2, 3]
@@ -34,13 +34,19 @@ html
     link(rel='stylesheet' href='style.css')
 
   body
-    header: .container
+    header.mb-5: .container
       h1.is-size-1.mt-2 dall-e painters
       a(href='https://github.com/molarmanful/dall-e-painters' target='_blank').mt-2.mb-4 github
+      h2.is-size-3.mt-2 filters
+      .tabs.mt-2.mb-4: ul
+        li.is-active: a all
+        li: a quote
+        li: a keywords
+        li: a work
 
-    section: .container
-      for data, painter in painters
-        for prompt, field in data
+    for data, painter in painters
+      for prompt, field in data
+        section.mb-5(class=field): .container
           h2.is-size-3.mt-2= painter + '/' + field
           p.mt-2.mb-4 prompt: 
             code= prompt
