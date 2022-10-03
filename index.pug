@@ -24,11 +24,11 @@
   let imgs = [0, 1, 2, 3]
 
 doctype html
-html 
-  head 
+html
+  head
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width, initial-scale=1')
-    title DALL-E Paintings
+    title dall-e painters
     link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css')
     link(rel='stylesheet' href='bulmaswatch.min.css')
     link(rel='stylesheet' href='style.css')
@@ -36,7 +36,7 @@ html
   body
     section
       .container
-        h1.is-size-1.my-2 dall-e paintings
+        h1.is-size-1.my-2 dall-e painters
         for data, painter in painters
           for prompt, field in data
             h2.is-size-3.my-2= painter + '/' + field
