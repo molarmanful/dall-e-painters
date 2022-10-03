@@ -34,19 +34,26 @@ html
     link(rel='stylesheet' href='style.css')
 
   body
-    section
-      .container
-        h1.is-size-1.my-2 dall-e painters
-        for data, painter in painters
-          for prompt, field in data
-            h2.is-size-3.my-2= painter + '/' + field
-            p.mt-2.mb-4 prompt: 
-              code= prompt
-            .columns
-              for i in imgs
-                .column
-                  figure.image.is-square
-                    - let src = `pics/${painter}-${field}-${i}.png`
-                    a(href=src target='_blank'): img(src=src)
+    header: .container
+      h1.is-size-1.mt-2 dall-e painters
+      a(href='https://github.com/molarmanful/dall-e-painters' target='_blank').mt-2.mb-4 github
 
+    section: .container
+      for data, painter in painters
+        for prompt, field in data
+          h2.is-size-3.mt-2= painter + '/' + field
+          p.mt-2.mb-4 prompt: 
+            code= prompt
+          .columns
+            for i in imgs
+              .column
+                figure.image.is-square
+                  -
+                    let src = `pics/${painter}-${field}-${i}`
+                    let big = src + '.png'
+                    let small = src + '-32.png'
+                  a(href=big target='_blank'): img.lazy(src=small data-src=big)
+
+    script(src='https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/cash/8.1.1/cash.min.js')
     script(src='main.js')

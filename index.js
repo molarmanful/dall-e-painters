@@ -1,20 +1,19 @@
 import { readFile, writeFile } from 'fs/promises'
 import { compileFile } from 'pug'
+import { render } from 'stylus'
 import postcss from 'postcss'
-import postcssStyl from 'postcss-styl'
 import autoprefixer from 'autoprefixer'
 
 let css = x => {
   let I = x + '.styl'
   let O = x + '.css'
-  readFile(I).then(style => {
-    postcss([autoprefixer]).process(style, {
-      syntax: postcssStyl,
-      from: I,
-      to: O,
-    }).then(({ css }) => {
-      writeFile(O, css)
-      console.log(I + ' > ' + O)
+  readFile(I).then(styl => {
+    render(styl + '', (err, css) => {
+      postcss([autoprefixer]).process(css, { from: void 0 }).then(res => {
+        writeFile(O, res.css).then(_ => {
+          console.log(I + ' > ' + O)
+        })
+      })
     })
   })
 }
