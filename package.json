@@ -1,0 +1,27 @@
+{
+  "name": "dall-e-painters",
+  "version": "0.0.0",
+  "description": "Pretty-printed results of preliminary experimentation with DALL-E 2.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/molarmanful/dall-e-painters.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/molarmanful/dall-e-painters/issues"
+  },
+  "homepage": "https://github.com/molarmanful/dall-e-painters#readme",
+  "dependencies": {
+    "autoprefixer": "^10.4.12",
+    "postcss": "^8.4.17",
+    "postcss-styl": "^0.11.1",
+    "pug": "^3.0.2",
+    "stylus": "^0.59.0"
+  }
+}
